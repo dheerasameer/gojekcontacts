@@ -28,8 +28,13 @@ class ContactTableViewCell: UITableViewCell {
   private func initCell() {
     self.contactImageView.image = UIImage(named: "sameer.jpg")
     self.contactNameLabel.text = "Sameer"
+    
     self.contactImageView.layer.cornerRadius = 20.0
     self.contactImageView.layer.masksToBounds = true
+    
+    self.favouriteImageView.image = UIImage(named: "icon_favourite_home")
+    self.favouriteImageView.isHidden = false
+    
   }
 
 }
