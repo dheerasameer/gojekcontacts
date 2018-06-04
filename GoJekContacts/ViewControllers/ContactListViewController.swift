@@ -12,12 +12,11 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
 
   
   @IBOutlet weak var contactsTableView: UITableView!
-  
+  let contactIndexTitles = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.contactsTableView.delegate = self
-    self.contactsTableView.dataSource = self
-    self.contactsTableView.rowHeight = 64.0
+    self.setupTableView()
   }
   
   override func didReceiveMemoryWarning() {
@@ -37,9 +36,18 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     return cell
   }
   
+  func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    return contactIndexTitles
+  }
+  
   // MARK:- Private
   
-  
+  func setupTableView() {
+    self.contactsTableView.delegate = self
+    self.contactsTableView.dataSource = self
+    self.contactsTableView.rowHeight = 64.0
+    self.contactsTableView.sectionIndexColor = UIColor.lightGray
+  }
   
 
 }
