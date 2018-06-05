@@ -69,6 +69,11 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   // MARK:- Interface callbacks
   
+  @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
+    let editVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! ContactEditViewController
+    self.present(editVC, animated: true, completion: nil)
+  }
+  
   @IBAction func messageButtonTap(_ sender: UIButton) {
     if MFMessageComposeViewController.canSendText() {
       let messageVC = MFMessageComposeViewController()

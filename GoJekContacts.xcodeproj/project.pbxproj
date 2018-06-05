@@ -10,6 +10,7 @@
 		041A58F320C6C4E100B075FB /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A58F220C6C4E100B075FB /* ContactDetailViewController.swift */; };
 		041A58F520C6D24900B075FB /* GradientColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A58F420C6D24900B075FB /* GradientColorView.swift */; };
 		041A58F720C6E66400B075FB /* ContactDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A58F620C6E66400B075FB /* ContactDetailViewCell.swift */; };
+		041A58FC20C703EF00B075FB /* ContactEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A58FB20C703EF00B075FB /* ContactEditViewController.swift */; };
 		043A8EA820C588DC004C0F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EA720C588DC004C0F6A /* AppDelegate.swift */; };
 		043A8EAD20C588DC004C0F6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EAB20C588DC004C0F6A /* Main.storyboard */; };
 		043A8EB020C588DC004C0F6A /* GoJekContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EAE20C588DC004C0F6A /* GoJekContacts.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		041A58F220C6C4E100B075FB /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		041A58F420C6D24900B075FB /* GradientColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColorView.swift; sourceTree = "<group>"; };
 		041A58F620C6E66400B075FB /* ContactDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewCell.swift; sourceTree = "<group>"; };
+		041A58FB20C703EF00B075FB /* ContactEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditViewController.swift; sourceTree = "<group>"; };
 		043A8EA420C588DC004C0F6A /* GoJekContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoJekContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043A8EA720C588DC004C0F6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043A8EAC20C588DC004C0F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */,
 				041A58F220C6C4E100B075FB /* ContactDetailViewController.swift */,
+				041A58FB20C703EF00B075FB /* ContactEditViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				041A58F520C6D24900B075FB /* GradientColorView.swift in Sources */,
 				043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */,
 				041A58F320C6C4E100B075FB /* ContactDetailViewController.swift in Sources */,
+				041A58FC20C703EF00B075FB /* ContactEditViewController.swift in Sources */,
 				043A8EB020C588DC004C0F6A /* GoJekContacts.xcdatamodeld in Sources */,
 				041A58F720C6E66400B075FB /* ContactDetailViewCell.swift in Sources */,
 				043A8EA820C588DC004C0F6A /* AppDelegate.swift in Sources */,
