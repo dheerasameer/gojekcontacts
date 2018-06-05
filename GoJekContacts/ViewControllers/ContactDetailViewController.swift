@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class ContactDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
 
   private let detailLabels = ["mobile", "email"]
   
@@ -46,6 +47,53 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     return cell
   }
   
+  
+  // MARK:- MFMessageComposeViewControllerDelegate
+  
+  func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    switch (result.rawValue) {
+    case MessageComposeResult.cancelled.rawValue:
+      print("Message was cancelled")
+      self.dismiss(animated: true, completion: nil)
+    case MessageComposeResult.failed.rawValue:
+      print("Message failed")
+      self.dismiss(animated: true, completion: nil)
+    case MessageComposeResult.sent.rawValue:
+      print("Message was sent")
+      self.dismiss(animated: true, completion: nil)
+    default:
+      break;
+    }
+  }
+  
+  
+  // MARK:- Interface callbacks
+  
+  @IBAction func messageButtonTap(_ sender: UIButton) {
+    if MFMessageComposeViewController.canSendText() {
+      let messageVC = MFMessageComposeViewController()
+      messageVC.recipients = ["Enter tel-nr"]
+      messageVC.messageComposeDelegate = self
+      self.present(messageVC, animated: false, completion: nil)
+    }
+  }
+  
+  @IBAction func callButtonTap(_ sender: UIButton) {
+    guard let number = URL(string: "tel://" + "123456") else { return }
+    UIApplication.shared.open(number)
+  }
+  
+  @IBAction func emailButtonTap(_ sender: UIButton) {
+    if MFMailComposeViewController.canSendMail() {
+      let emailVC = MFMailComposeViewController()
+      emailVC.setToRecipients(["k.dheerasameer@gmail.com"])
+      self.present(emailVC, animated: false, completion: nil)
+    }
+  }
+  
+  @IBAction func favouriteButtonTap(_ sender: UIButton) {
+    //TODO: Put condition to show favourite and vice versa
+  }
   
   // MARK:- Private
   
