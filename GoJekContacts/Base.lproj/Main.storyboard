@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -236,13 +237,59 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-RQ-h0t" userLabel="Details Table View">
+                                <rect key="frame" x="0.0" y="331" width="375" height="112"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="DlG-lv-fAl"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="contactDetailCell" id="RlY-7f-yjR" userLabel="Details Table View Cell" customClass="ContactDetailViewCell" customModule="GoJekContacts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RlY-7f-yjR" id="G7t-Bq-Wfa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dzV-vd-Tey" userLabel="Detail Type Label">
+                                                    <rect key="frame" x="15" y="19.5" width="65" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="w9i-4a-od4" userLabel="Detail Value Label">
+                                                    <rect key="frame" x="100" y="17.5" width="255" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="w9i-4a-od4" firstAttribute="centerY" secondItem="G7t-Bq-Wfa" secondAttribute="centerY" id="1oR-aa-frj"/>
+                                                <constraint firstItem="w9i-4a-od4" firstAttribute="leading" secondItem="dzV-vd-Tey" secondAttribute="trailing" constant="20" id="Cib-6Q-WCG"/>
+                                                <constraint firstAttribute="trailing" secondItem="w9i-4a-od4" secondAttribute="trailing" constant="20" id="Gct-3a-4LH"/>
+                                                <constraint firstItem="dzV-vd-Tey" firstAttribute="leading" secondItem="G7t-Bq-Wfa" secondAttribute="leadingMargin" id="LfB-Rk-Fm0"/>
+                                                <constraint firstItem="dzV-vd-Tey" firstAttribute="centerY" secondItem="G7t-Bq-Wfa" secondAttribute="centerY" id="Mon-MB-bMi"/>
+                                                <constraint firstItem="dzV-vd-Tey" firstAttribute="trailing" secondItem="G7t-Bq-Wfa" secondAttribute="leading" constant="80" id="lo4-V0-YKv" userLabel="Detail Type Label.trailing = leading + 50"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailTypeLabel" destination="dzV-vd-Tey" id="wOv-Z4-USV"/>
+                                            <outlet property="detailValueLabel" destination="w9i-4a-od4" id="eyU-gU-ibf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gWM-RQ-h0t" firstAttribute="trailing" secondItem="c2E-mf-3cJ" secondAttribute="trailing" id="1KU-tL-iSl"/>
                             <constraint firstItem="VQA-Fj-juF" firstAttribute="leading" secondItem="c2E-mf-3cJ" secondAttribute="leading" id="EQt-S5-juu"/>
                             <constraint firstItem="VQA-Fj-juF" firstAttribute="trailing" secondItem="c2E-mf-3cJ" secondAttribute="trailing" id="FhN-qn-J9d"/>
                             <constraint firstItem="VQA-Fj-juF" firstAttribute="height" secondItem="WfM-Jb-KlB" secondAttribute="height" multiplier="0.4" id="LeH-t4-W6V"/>
+                            <constraint firstItem="gWM-RQ-h0t" firstAttribute="top" secondItem="VQA-Fj-juF" secondAttribute="bottom" id="aEh-ne-DbM"/>
                             <constraint firstItem="VQA-Fj-juF" firstAttribute="top" secondItem="c2E-mf-3cJ" secondAttribute="top" id="b4X-F6-NAj"/>
+                            <constraint firstItem="gWM-RQ-h0t" firstAttribute="leading" secondItem="c2E-mf-3cJ" secondAttribute="leading" id="gL9-O1-YGp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c2E-mf-3cJ"/>
                     </view>
@@ -250,13 +297,14 @@
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="PCu-uR-wZ7" userLabel="Edit Button Item"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="contactDetailsTableView" destination="gWM-RQ-h0t" id="BZB-gs-FFZ"/>
                         <outlet property="contactImageView" destination="UB4-jy-bq5" id="kS8-wM-0AQ"/>
                         <outlet property="contactNameLabel" destination="UQW-51-073" id="PUS-oR-sxY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbZ-dr-RG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1988" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AQg-Mw-igh">
