@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041A58F320C6C4E100B075FB /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A58F220C6C4E100B075FB /* ContactDetailViewController.swift */; };
 		043A8EA820C588DC004C0F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EA720C588DC004C0F6A /* AppDelegate.swift */; };
 		043A8EAD20C588DC004C0F6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EAB20C588DC004C0F6A /* Main.storyboard */; };
 		043A8EB020C588DC004C0F6A /* GoJekContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EAE20C588DC004C0F6A /* GoJekContacts.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041A58F220C6C4E100B075FB /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		043A8EA420C588DC004C0F6A /* GoJekContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoJekContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043A8EA720C588DC004C0F6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043A8EAC20C588DC004C0F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */,
+				041A58F220C6C4E100B075FB /* ContactDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */,
+				041A58F320C6C4E100B075FB /* ContactDetailViewController.swift in Sources */,
 				043A8EB020C588DC004C0F6A /* GoJekContacts.xcdatamodeld in Sources */,
 				043A8EA820C588DC004C0F6A /* AppDelegate.swift in Sources */,
 				043A8EDD20C5897B004C0F6A /* ContactListViewController.swift in Sources */,
