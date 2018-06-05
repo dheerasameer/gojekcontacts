@@ -88,7 +88,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contactsTableView" destination="nZB-fn-Ra6" id="Pu2-o3-REa"/>
-                        <segue destination="tKe-c6-HEa" kind="show" id="Zqs-pU-U1t"/>
+                        <segue destination="tKe-c6-HEa" kind="show" identifier="kContactToDetailsVCSegue" id="Zqs-pU-U1t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

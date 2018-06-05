@@ -23,6 +23,10 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     self.updateWithDetails()
   }
   
+  override func viewDidLayoutSubviews() {
+    self.contactImageView.layer.cornerRadius = self.contactImageView.bounds.width/2
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -46,9 +50,7 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   // MARK:- Private
   
   private func configureView() {
-    
     // UIImageView
-    self.contactImageView.layer.cornerRadius = self.contactImageView.bounds.width/2
     self.contactImageView.layer.masksToBounds = true
     self.contactImageView.layer.borderWidth = 3.0
     self.contactImageView.layer.borderColor = UIColor.white.cgColor
