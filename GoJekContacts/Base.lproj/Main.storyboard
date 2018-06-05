@@ -99,13 +99,30 @@
                     <view key="view" contentMode="scaleToFill" id="WfM-Jb-KlB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQA-Fj-juF" userLabel="User Display View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="335" id="3N7-bC-C8R"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VQA-Fj-juF" firstAttribute="leading" secondItem="c2E-mf-3cJ" secondAttribute="leading" id="EQt-S5-juu"/>
+                            <constraint firstItem="VQA-Fj-juF" firstAttribute="trailing" secondItem="c2E-mf-3cJ" secondAttribute="trailing" id="FhN-qn-J9d"/>
+                            <constraint firstItem="VQA-Fj-juF" firstAttribute="top" secondItem="WfM-Jb-KlB" secondAttribute="top" id="O4F-Aq-Aqp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="c2E-mf-3cJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kCb-gk-gT5">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="PCu-uR-wZ7" userLabel="Edit Button Item"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbZ-dr-RG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="133"/>
+            <point key="canvasLocation" x="1812" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AQg-Mw-igh">
