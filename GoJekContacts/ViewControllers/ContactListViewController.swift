@@ -19,6 +19,12 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     self.setupTableView()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    if let indexPath = self.contactsTableView.indexPathForSelectedRow {
+      self.contactsTableView.deselectRow(at: indexPath, animated: true)
+    }
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -38,6 +44,11 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   
   func sectionIndexTitles(for tableView: UITableView) -> [String]? {
     return contactIndexTitles
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let contactDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "contactDetailVC") as! ContactDetailViewController
+    self.navigationController?.pushViewController(contactDetailVC, animated: true)
   }
   
   // MARK:- Private

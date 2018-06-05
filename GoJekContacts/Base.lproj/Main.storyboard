@@ -56,6 +56,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="MHU-mN-dix" secondAttribute="trailing" constant="32" id="Kvm-EB-k8X"/>
                                                 <constraint firstItem="MHU-mN-dix" firstAttribute="centerY" secondItem="Fya-ev-3f4" secondAttribute="centerY" id="LTV-v4-6pS"/>
                                                 <constraint firstItem="1kb-hx-IT2" firstAttribute="top" secondItem="Fya-ev-3f4" secondAttribute="top" constant="12" id="OQz-Gl-gH1"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CEg-kY-P4N" secondAttribute="trailing" constant="20" symbolic="YES" id="fwf-eI-DsC"/>
                                                 <constraint firstAttribute="bottom" secondItem="MHU-mN-dix" secondAttribute="bottom" constant="20" id="kp1-d8-VhY"/>
                                                 <constraint firstItem="CEg-kY-P4N" firstAttribute="centerY" secondItem="Fya-ev-3f4" secondAttribute="centerY" id="yEd-fX-xKm"/>
                                             </constraints>
@@ -94,7 +95,7 @@
         <!--Contact Detail View Controller-->
         <scene sceneID="HZn-66-79e">
             <objects>
-                <viewController id="tKe-c6-HEa" customClass="ContactDetailViewController" customModule="GoJekContacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="contactDetailVC" id="tKe-c6-HEa" customClass="ContactDetailViewController" customModule="GoJekContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WfM-Jb-KlB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
