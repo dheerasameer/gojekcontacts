@@ -44,7 +44,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MHU-mN-dix" userLabel="Favourite Image View">
-                                                    <rect key="frame" x="264" y="20" width="24" height="3.5"/>
+                                                    <rect key="frame" x="319" y="20" width="24" height="3.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="dxd-y5-D0j"/>
                                                     </constraints>
@@ -112,15 +112,118 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQW-51-073" userLabel="Contact Name Label">
-                                        <rect key="frame" x="20" y="149" width="335" height="21"/>
+                                        <rect key="frame" x="20" y="149" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="g74-RV-8Fp" userLabel="Feature Buttons Stack View">
+                                        <rect key="frame" x="44" y="190" width="287" height="65"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7c-TN-K9o" userLabel="Message Button View">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUi-EZ-gRS" userLabel="Message Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="44"/>
+                                                        <state key="normal" image="icon_message"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="jli-Lb-NY3" userLabel="Message Label">
+                                                        <rect key="frame" x="0.0" y="50.5" width="58" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="jli-Lb-NY3" firstAttribute="leading" secondItem="G7c-TN-K9o" secondAttribute="leading" id="7by-yh-yEb"/>
+                                                    <constraint firstItem="vUi-EZ-gRS" firstAttribute="leading" secondItem="G7c-TN-K9o" secondAttribute="leading" id="GTO-zx-hmj"/>
+                                                    <constraint firstItem="vUi-EZ-gRS" firstAttribute="top" secondItem="G7c-TN-K9o" secondAttribute="top" id="Geh-65-u2V"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vUi-EZ-gRS" secondAttribute="trailing" id="YIm-x1-s6D"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jli-Lb-NY3" secondAttribute="trailing" id="dqn-hZ-rId"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jli-Lb-NY3" secondAttribute="bottom" id="wJ7-Ym-GIz"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQk-mh-251" userLabel="Call Button View">
+                                                <rect key="frame" x="76.5" y="0.0" width="58" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tnd-SG-zHk" userLabel="Call Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="44"/>
+                                                        <state key="normal" image="icon_call"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="E0y-S0-jHO" userLabel="Call Label">
+                                                        <rect key="frame" x="0.0" y="50.5" width="58" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Tnd-SG-zHk" firstAttribute="leading" secondItem="kQk-mh-251" secondAttribute="leading" id="5Vg-9r-msb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="E0y-S0-jHO" secondAttribute="bottom" id="IHI-83-aPW"/>
+                                                    <constraint firstItem="E0y-S0-jHO" firstAttribute="leading" secondItem="kQk-mh-251" secondAttribute="leading" id="QxM-XU-gO6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Tnd-SG-zHk" secondAttribute="trailing" id="U6b-Qr-j6P"/>
+                                                    <constraint firstAttribute="trailing" secondItem="E0y-S0-jHO" secondAttribute="trailing" id="bmc-Rx-q7F"/>
+                                                    <constraint firstItem="Tnd-SG-zHk" firstAttribute="top" secondItem="kQk-mh-251" secondAttribute="top" id="xN7-sP-VaQ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsI-HH-iRN" userLabel="Email Button View">
+                                                <rect key="frame" x="152.5" y="0.0" width="58" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLm-Uf-zeC" userLabel="Email Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="44"/>
+                                                        <state key="normal" image="icon_email"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="0sF-qu-LOk" userLabel="Email Label">
+                                                        <rect key="frame" x="0.0" y="50.5" width="58" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="0sF-qu-LOk" firstAttribute="leading" secondItem="qsI-HH-iRN" secondAttribute="leading" id="9gt-0a-6cy"/>
+                                                    <constraint firstItem="hLm-Uf-zeC" firstAttribute="top" secondItem="qsI-HH-iRN" secondAttribute="top" id="HIE-8d-ISW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hLm-Uf-zeC" secondAttribute="trailing" id="MV5-nT-ewr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="0sF-qu-LOk" secondAttribute="bottom" id="cVb-8B-7BM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0sF-qu-LOk" secondAttribute="trailing" id="eai-j7-cf6"/>
+                                                    <constraint firstItem="hLm-Uf-zeC" firstAttribute="leading" secondItem="qsI-HH-iRN" secondAttribute="leading" id="tss-f6-laA"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sib-jG-Ruz" userLabel="Favourite Button View">
+                                                <rect key="frame" x="229" y="0.0" width="58" height="65"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdQ-Gy-pnr" userLabel="Favourite Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="44"/>
+                                                        <state key="normal" image="icon_favourite"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="9hF-mf-Mox" userLabel="Favourite Label">
+                                                        <rect key="frame" x="0.0" y="50.5" width="58" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="9hF-mf-Mox" secondAttribute="bottom" id="Arp-gj-5aK"/>
+                                                    <constraint firstItem="sdQ-Gy-pnr" firstAttribute="top" secondItem="sib-jG-Ruz" secondAttribute="top" id="Yjm-p4-Ets"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9hF-mf-Mox" secondAttribute="trailing" id="bTe-Z4-k3m"/>
+                                                    <constraint firstItem="sdQ-Gy-pnr" firstAttribute="leading" secondItem="sib-jG-Ruz" secondAttribute="leading" id="ihf-bP-zzd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sdQ-Gy-pnr" secondAttribute="trailing" id="oC9-aT-u4c"/>
+                                                    <constraint firstItem="9hF-mf-Mox" firstAttribute="leading" secondItem="sib-jG-Ruz" secondAttribute="leading" id="oQK-s5-UpT"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="hJE-7e-Ewq"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="g74-RV-8Fp" secondAttribute="bottom" constant="12" id="1uz-sb-o32"/>
+                                    <constraint firstAttribute="trailing" secondItem="g74-RV-8Fp" secondAttribute="trailing" constant="44" id="95m-T7-8Dt"/>
                                     <constraint firstAttribute="trailing" secondItem="UB4-jy-bq5" secondAttribute="trailing" constant="127" id="9zJ-PZ-UI3"/>
+                                    <constraint firstItem="g74-RV-8Fp" firstAttribute="leading" secondItem="VQA-Fj-juF" secondAttribute="leading" constant="44" id="CME-75-75o"/>
                                     <constraint firstItem="UB4-jy-bq5" firstAttribute="top" secondItem="VQA-Fj-juF" secondAttribute="top" constant="20" id="T9O-mU-dNu"/>
                                     <constraint firstItem="UQW-51-073" firstAttribute="top" secondItem="UB4-jy-bq5" secondAttribute="bottom" constant="8" id="aw6-3l-O8k"/>
                                     <constraint firstItem="UB4-jy-bq5" firstAttribute="leading" secondItem="VQA-Fj-juF" secondAttribute="leading" constant="127" id="b2r-te-ssD"/>
@@ -175,4 +278,10 @@
             <point key="canvasLocation" x="95" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_call" width="45" height="44"/>
+        <image name="icon_email" width="45" height="44"/>
+        <image name="icon_favourite" width="44" height="44"/>
+        <image name="icon_message" width="44" height="44"/>
+    </resources>
 </document>
