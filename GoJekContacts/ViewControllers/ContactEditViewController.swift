@@ -10,7 +10,7 @@ import UIKit
 
 class ContactEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  private let detailLabels = ["First Name", "Last Name", "mobile", "email"]
+  let detailLabels = ["First Name", "Last Name", "mobile", "email"]
   
   @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var contactImageView: UIImageView!

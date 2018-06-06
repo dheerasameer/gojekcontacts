@@ -22,6 +22,7 @@
 		043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */; };
 		043A8EE120C58F8A004C0F6A /* sameer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EE020C58F8A004C0F6A /* sameer.jpg */; };
 		0465901820C8366F005B5B23 /* ContactDetailEditableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */; };
+		04B9067520C86A83008BC943 /* ContactAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9067420C86A83008BC943 /* ContactAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		043A8EE020C58F8A004C0F6A /* sameer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sameer.jpg; sourceTree = "<group>"; };
 		0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailEditableViewCell.swift; sourceTree = "<group>"; };
+		04B9067420C86A83008BC943 /* ContactAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */,
 				041A58F220C6C4E100B075FB /* ContactDetailViewController.swift */,
 				041A58FB20C703EF00B075FB /* ContactEditViewController.swift */,
+				04B9067420C86A83008BC943 /* ContactAddViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				041A58F520C6D24900B075FB /* GradientColorView.swift in Sources */,
 				0465901820C8366F005B5B23 /* ContactDetailEditableViewCell.swift in Sources */,
 				043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */,
+				04B9067520C86A83008BC943 /* ContactAddViewController.swift in Sources */,
 				041A58F320C6C4E100B075FB /* ContactDetailViewController.swift in Sources */,
 				041A58FC20C703EF00B075FB /* ContactEditViewController.swift in Sources */,
 				043A8EB020C588DC004C0F6A /* GoJekContacts.xcdatamodeld in Sources */,

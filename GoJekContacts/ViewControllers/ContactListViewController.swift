@@ -51,6 +51,16 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     self.navigationController?.pushViewController(contactDetailVC, animated: true)
   }
   
+  
+  // MARK:- Interface callbacks
+  
+  @IBAction func addButtonTap(_ sender: UIBarButtonItem) {
+    let addVC = self.storyboard?.instantiateViewController(withIdentifier: "addVC") as! ContactAddViewController
+    // TODO: Better fix for navigation bar on editVC
+    let navigationVC = UINavigationController(rootViewController: addVC)
+    self.present(navigationVC, animated: true, completion: nil)
+  }
+  
   // MARK:- Private
   
   func setupTableView() {
