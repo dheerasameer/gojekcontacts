@@ -21,6 +21,7 @@
 		043A8EDD20C5897B004C0F6A /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */; };
 		043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */; };
 		043A8EE120C58F8A004C0F6A /* sameer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EE020C58F8A004C0F6A /* sameer.jpg */; };
+		0465901820C8366F005B5B23 /* ContactDetailEditableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		043A8EE020C58F8A004C0F6A /* sameer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sameer.jpg; sourceTree = "<group>"; };
+		0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailEditableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */,
 				041A58F420C6D24900B075FB /* GradientColorView.swift */,
 				041A58F620C6E66400B075FB /* ContactDetailViewCell.swift */,
+				0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041A58F520C6D24900B075FB /* GradientColorView.swift in Sources */,
+				0465901820C8366F005B5B23 /* ContactDetailEditableViewCell.swift in Sources */,
 				043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */,
 				041A58F320C6C4E100B075FB /* ContactDetailViewController.swift in Sources */,
 				041A58FC20C703EF00B075FB /* ContactEditViewController.swift in Sources */,

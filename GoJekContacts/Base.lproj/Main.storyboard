@@ -256,7 +256,7 @@
                                     <constraint firstAttribute="height" constant="112" id="DlG-lv-fAl"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="contactDetailCell" id="RlY-7f-yjR" userLabel="Details Table View Cell" customClass="ContactDetailViewCell" customModule="GoJekContacts" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="contactDetailCell" id="RlY-7f-yjR" userLabel="Details Table View Cell" customClass="ContactDetailViewCell" customModule="GoJekContacts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RlY-7f-yjR" id="G7t-Bq-Wfa">
@@ -364,21 +364,78 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DP5-eW-0Uy" userLabel="Details Table View">
+                                <rect key="frame" x="0.0" y="249" width="375" height="224"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="y4w-sc-ZTJ"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="contactDetailEditableCell" id="coj-yc-PgK" userLabel="Details Table View Cell" customClass="ContactDetailEditableViewCell" customModule="GoJekContacts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="coj-yc-PgK" id="uE3-hC-bnw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hff-nl-9Vq" userLabel="Detail Type Label">
+                                                    <rect key="frame" x="15" y="19.5" width="85" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jbx-6F-SC5" userLabel="Detail Value Text Field">
+                                                    <rect key="frame" x="120" y="18.5" width="220" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jbx-6F-SC5" firstAttribute="leading" secondItem="hff-nl-9Vq" secondAttribute="trailing" constant="20" id="0ie-Yx-229"/>
+                                                <constraint firstItem="hff-nl-9Vq" firstAttribute="centerY" secondItem="uE3-hC-bnw" secondAttribute="centerY" id="kVt-2t-n0j"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jbx-6F-SC5" secondAttribute="trailing" constant="20" id="mI3-D1-g8z"/>
+                                                <constraint firstItem="hff-nl-9Vq" firstAttribute="trailing" secondItem="uE3-hC-bnw" secondAttribute="leading" constant="100" id="peK-JE-wIE" userLabel="Detail Type Label.trailing = leading + 50"/>
+                                                <constraint firstItem="hff-nl-9Vq" firstAttribute="leading" secondItem="uE3-hC-bnw" secondAttribute="leadingMargin" id="vOZ-zH-CMo"/>
+                                                <constraint firstItem="Jbx-6F-SC5" firstAttribute="centerY" secondItem="uE3-hC-bnw" secondAttribute="centerY" id="wOR-Wb-Qqi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailTypeLabel" destination="hff-nl-9Vq" id="1av-0W-rlG"/>
+                                            <outlet property="detailValueTextField" destination="Jbx-6F-SC5" id="HcB-A0-OSO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DP5-eW-0Uy" firstAttribute="top" secondItem="H02-78-S4X" secondAttribute="bottom" id="6it-gV-HpY"/>
                             <constraint firstItem="H02-78-S4X" firstAttribute="leading" secondItem="kXJ-Cw-r67" secondAttribute="leading" id="7hX-sc-wEu"/>
+                            <constraint firstItem="DP5-eW-0Uy" firstAttribute="trailing" secondItem="kXJ-Cw-r67" secondAttribute="trailing" id="7zC-yt-WSW"/>
                             <constraint firstItem="H02-78-S4X" firstAttribute="trailing" secondItem="kXJ-Cw-r67" secondAttribute="trailing" id="bb2-hT-aTK"/>
+                            <constraint firstItem="DP5-eW-0Uy" firstAttribute="leading" secondItem="kXJ-Cw-r67" secondAttribute="leading" id="wdh-c4-nrW"/>
                             <constraint firstItem="H02-78-S4X" firstAttribute="top" secondItem="kXJ-Cw-r67" secondAttribute="top" id="zqC-cC-xe2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kXJ-Cw-r67"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y3N-ra-bHv">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dcs-i5-iRq"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9Me-pa-oTd"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dcs-i5-iRq">
+                            <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelButtonTap:" destination="Bx9-ag-2Sj" id="Wz0-1h-6nT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9Me-pa-oTd">
+                            <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="doneButtonTap:" destination="Bx9-ag-2Sj" id="afR-0e-OZA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="Hq4-L0-nOd" id="Yrf-UP-zj7"/>
+                        <outlet property="contactDetailsTableView" destination="DP5-eW-0Uy" id="n9f-Ga-Tzk"/>
                         <outlet property="contactImageView" destination="15i-oT-1Kh" id="7Ue-6Z-xaB"/>
                     </connections>
                 </viewController>
