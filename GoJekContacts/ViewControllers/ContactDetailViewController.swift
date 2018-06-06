@@ -71,7 +71,9 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
     let editVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! ContactEditViewController
-    self.present(editVC, animated: true, completion: nil)
+    // TODO: Better fix for navigation bar on editVC
+    let navigationVC = UINavigationController(rootViewController: editVC)
+    self.present(navigationVC, animated: true, completion: nil)
   }
   
   @IBAction func messageButtonTap(_ sender: UIButton) {
