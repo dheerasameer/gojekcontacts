@@ -71,6 +71,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let contactDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "contactDetailVC") as! ContactDetailViewController
+    contactDetailVC.reloadWithContact(self.contactsList![indexPath.row])
     self.navigationController?.pushViewController(contactDetailVC, animated: true)
   }
   

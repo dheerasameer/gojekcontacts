@@ -318,6 +318,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contactDetailsTableView" destination="gWM-RQ-h0t" id="BZB-gs-FFZ"/>
+                        <outlet property="contactFavouriteButton" destination="sdQ-Gy-pnr" id="ZKF-1e-eTC"/>
                         <outlet property="contactImageView" destination="UB4-jy-bq5" id="kS8-wM-0AQ"/>
                         <outlet property="contactNameLabel" destination="UQW-51-073" id="PUS-oR-sxY"/>
                         <segue destination="39h-ou-kLx" kind="presentation" identifier="kdetailToEditVCSegue" id="tye-tm-hhc"/>

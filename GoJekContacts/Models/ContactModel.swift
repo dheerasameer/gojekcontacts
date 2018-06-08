@@ -23,7 +23,7 @@ class ContactModel {
   var profilePicUrl: String?
   var profilePic: UIImage?
   var isFavourite: Bool = false
-  var detailsURL: String?
+  var details: DetailsModel?
   
   func updateProfilePic() {
 //    let url = URL(string: "https://contacts-app.s3-ap-southeast-1.amazonaws.com/contacts/profile_pics/000/001/402/original/Screen_Shot_2018-03-29_at_11.43.36.png?1524763798")

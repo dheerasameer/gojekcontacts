@@ -10,13 +10,22 @@ import UIKit
 import MessageUI
 
 class ContactDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
+  
+  private let detailsLabels = ["mobile", "email"]
 
-  private let detailLabels = ["mobile", "email"]
+  private var detailsDictionary = ["mobile": "", "email": ""] {
+    didSet {
+      self.contactDetailsTableView.reloadData()
+    }
+  }
+  
+  var contact: ContactModel? = nil
   
   @IBOutlet weak var contactImageView: UIImageView!
   @IBOutlet weak var contactNameLabel: UILabel!
   
   @IBOutlet weak var contactDetailsTableView: UITableView!
+  @IBOutlet weak var contactFavouriteButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,8 +51,8 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactDetailCell", for: indexPath) as! ContactDetailViewCell
-    cell.detailTypeLabel.text = self.detailLabels[indexPath.row]
-    cell.detailValueLabel.text = "+91 7022030522"
+    cell.detailTypeLabel.text = self.detailsLabels[indexPath.row]
+    cell.detailValueLabel.text = self.detailsDictionary[self.detailsLabels[indexPath.row]]
     return cell
   }
   
@@ -99,7 +108,28 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   }
   
   @IBAction func favouriteButtonTap(_ sender: UIButton) {
-    //TODO: Put condition to show favourite and vice versa
+    if self.contact!.isFavourite {
+      self.contactFavouriteButton.setImage(UIImage(named: "icon_favourite"), for: .normal)
+    } else {
+      self.contactFavouriteButton.setImage(UIImage(named: "icon_favourite_selected"), for: .normal)
+    }
+    self.contact!.isFavourite = !self.contact!.isFavourite
+  }
+  
+  // MARK:- Public
+  
+  func reloadWithContact(_ contact: ContactModel) {
+    self.contact = contact
+    ContactsHelper.fetchContactDetails(self.contact!) { [weak self] (success, error) in
+      if success {
+        DispatchQueue.main.async {
+          self?.detailsDictionary["mobile"] = self?.contact?.details?.mobile
+          self?.detailsDictionary["email"] = self?.contact?.details?.email
+        }
+      } else {
+        print(error!.localizedDescription)
+      }
+    }
   }
   
   // MARK:- Private
@@ -116,8 +146,13 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   }
   
   private func updateWithDetails() {
-    self.contactImageView.image = UIImage(named: "sameer.jpg")
-    self.contactNameLabel.text = "Sameer"
+    if let contactImage = self.contact?.profilePic {
+      self.contactImageView.image = contactImage
+    }
+    self.contactNameLabel.text = self.contact!.firstName! + " " + self.contact!.lastName!
+    if self.contact!.isFavourite {
+      self.contactFavouriteButton.setImage(UIImage(named: "icon_favourite_selected"), for: .normal)
+    }
   }
   
 }
