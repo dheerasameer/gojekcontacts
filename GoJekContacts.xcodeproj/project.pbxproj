@@ -22,6 +22,7 @@
 		043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */; };
 		043A8EE120C58F8A004C0F6A /* sameer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EE020C58F8A004C0F6A /* sameer.jpg */; };
 		0465901820C8366F005B5B23 /* ContactDetailEditableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */; };
+		048EED5220CA34B100A7FA4F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EED5120CA34B100A7FA4F /* ContactModel.swift */; };
 		04B9067520C86A83008BC943 /* ContactAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9067420C86A83008BC943 /* ContactAddViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		043A8EE020C58F8A004C0F6A /* sameer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sameer.jpg; sourceTree = "<group>"; };
 		0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailEditableViewCell.swift; sourceTree = "<group>"; };
+		048EED5120CA34B100A7FA4F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		04B9067420C86A83008BC943 /* ContactAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 		043A8EA620C588DC004C0F6A /* GoJekContacts */ = {
 			isa = PBXGroup;
 			children = (
+				048EED5020CA349900A7FA4F /* Models */,
 				043A8ED820C58946004C0F6A /* ViewControllers */,
 				043A8EDA20C58946004C0F6A /* Views */,
 				043A8EA720C588DC004C0F6A /* AppDelegate.swift */,
@@ -166,6 +169,14 @@
 				0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		048EED5020CA349900A7FA4F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				048EED5120CA34B100A7FA4F /* ContactModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 				041A58F720C6E66400B075FB /* ContactDetailViewCell.swift in Sources */,
 				043A8EA820C588DC004C0F6A /* AppDelegate.swift in Sources */,
 				043A8EDD20C5897B004C0F6A /* ContactListViewController.swift in Sources */,
+				048EED5220CA34B100A7FA4F /* ContactModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
