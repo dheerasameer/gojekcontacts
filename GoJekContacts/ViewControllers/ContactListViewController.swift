@@ -60,6 +60,8 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     let contact = self.contactsList![indexPath.row]
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
     cell.contactNameLabel.text = contact.firstName! + " " + contact.lastName!
+    cell.favouriteImageView.isHidden = !contact.isFavourite
+    // TODO: Update contact image
     return cell
   }
   

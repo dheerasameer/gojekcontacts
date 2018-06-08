@@ -36,8 +36,9 @@ class ContactParseHelper {
     contact.firstName = item["first_name"] as? String
     contact.lastName = item["last_name"] as? String
     contact.profilePicUrl = item["profile_pic"] as? String
+    contact.isFavourite = item["favorite"] as! Bool
     contact.detailsURL = item["url"] as? String
-    
+    // TODO: Get profile photo
     contact.updateProfilePic()
     return contact
   }
