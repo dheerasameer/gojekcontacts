@@ -14,13 +14,30 @@
 //"favorite": true,
 //"url": "http://gojek-contacts-app.herokuapp.com/contacts/1484.json"
 
-import Foundation
+import UIKit
 
 class ContactModel {
-  var id: String?
+  var id: Int16?
   var firstName: String?
   var lastName: String?
-  var profilePic: String?
+  var profilePicUrl: String?
+  var profilePic: UIImage?
   var isFavourite: Bool = false
   var detailsURL: String?
+  
+  func updateProfilePic() {
+//    let url = URL(string: "https://contacts-app.s3-ap-southeast-1.amazonaws.com/contacts/profile_pics/000/001/402/original/Screen_Shot_2018-03-29_at_11.43.36.png?1524763798")
+//    var image: UIImage? = nil
+//    let semaphore = DispatchSemaphore(value: 0)
+//    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+//      if error == nil {
+//        if let responseData = data {
+//          image = UIImage(data: responseData)
+//        }
+//      }
+//      semaphore.signal()
+//    }
+//    task.resume()
+//    _ = semaphore.wait(timeout: .distantFuture)
+  }
 }

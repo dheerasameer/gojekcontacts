@@ -9,14 +9,29 @@
 import UIKit
 
 class ContactListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+  
+  private var contactsList: [ContactModel]? = nil {
+    didSet {
+      self.contactsTableView.reloadData()
+    }
+  }
+  
+  private let contactIndexTitles = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
   
   @IBOutlet weak var contactsTableView: UITableView!
-  let contactIndexTitles = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupTableView()
+    ContactsHelper.fetchAllContacts { [weak self] (list, success, error) in
+      if success {
+        DispatchQueue.main.async {
+          self?.contactsList = list
+        }
+      } else {
+        print(error!.localizedDescription)
+      }
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -34,11 +49,17 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   // MARK:- UITableViewDataSource
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    var count = 0
+    if let list = self.contactsList {
+      count = list.count
+    }
+    return count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let contact = self.contactsList![indexPath.row]
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
+    cell.contactNameLabel.text = contact.firstName! + " " + contact.lastName!
     return cell
   }
   
