@@ -12,13 +12,19 @@ class ContactAddViewController: ContactEditViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    super.contactDetailsTableView.dataSource = self
+    super.contactDetailsTableView.delegate = self
+    self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: Selector(("saveButtonTap:")))
     // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  func saveButtonTap() {
+    print("save clicked")
   }
   
 
