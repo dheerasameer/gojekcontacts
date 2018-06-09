@@ -27,6 +27,7 @@
 		048EED5720CA4C8000A7FA4F /* ContactParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EED5620CA4C8000A7FA4F /* ContactParseHelper.swift */; };
 		048EED5920CA5F8800A7FA4F /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EED5820CA5F8800A7FA4F /* ValidationHelper.swift */; };
 		048EED5B20CA761200A7FA4F /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EED5A20CA761200A7FA4F /* DetailsModel.swift */; };
+		04AAB5D220CB677D00979E14 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB5D120CB677D00979E14 /* MockData.swift */; };
 		04B9067520C86A83008BC943 /* ContactAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9067420C86A83008BC943 /* ContactAddViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		048EED5620CA4C8000A7FA4F /* ContactParseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactParseHelper.swift; sourceTree = "<group>"; };
 		048EED5820CA5F8800A7FA4F /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		048EED5A20CA761200A7FA4F /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		04AAB5D120CB677D00979E14 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		04B9067420C86A83008BC943 /* ContactAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 		043A8EA620C588DC004C0F6A /* GoJekContacts */ = {
 			isa = PBXGroup;
 			children = (
+				04AAB5D020CB675A00979E14 /* Data */,
 				048EED5320CA36C100A7FA4F /* Helpers */,
 				048EED5020CA349900A7FA4F /* Models */,
 				043A8ED820C58946004C0F6A /* ViewControllers */,
@@ -197,6 +200,14 @@
 				048EED5820CA5F8800A7FA4F /* ValidationHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		04AAB5D020CB675A00979E14 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04AAB5D120CB677D00979E14 /* MockData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +355,7 @@
 				041A58F720C6E66400B075FB /* ContactDetailViewCell.swift in Sources */,
 				043A8EA820C588DC004C0F6A /* AppDelegate.swift in Sources */,
 				043A8EDD20C5897B004C0F6A /* ContactListViewController.swift in Sources */,
+				04AAB5D220CB677D00979E14 /* MockData.swift in Sources */,
 				048EED5B20CA761200A7FA4F /* DetailsModel.swift in Sources */,
 				048EED5220CA34B100A7FA4F /* ContactModel.swift in Sources */,
 			);
