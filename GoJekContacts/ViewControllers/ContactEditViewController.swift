@@ -10,12 +10,13 @@ import UIKit
 
 class ContactEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  let detailLabels = ["First Name", "Last Name", "mobile", "email"]
+  private var detailsDictionary = [0: ["First Name": ""], 1: ["Last Name": ""], 2: ["mobile": ""], 3: ["email": ""]]
+  private var contact: ContactModel? = nil
   
   @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var contactImageView: UIImageView!
-  
   @IBOutlet weak var contactDetailsTableView: UITableView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
@@ -40,8 +41,10 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactDetailEditableCell", for: indexPath) as! ContactDetailEditableViewCell
-    cell.detailTypeLabel.text = self.detailLabels[indexPath.row]
-    cell.detailValueTextField.text = "+91 7022030522"
+    let fieldDictionary = self.detailsDictionary[indexPath.row]! as NSDictionary
+    let fieldName = fieldDictionary.allKeys[0] as? String
+    cell.detailTypeLabel.text = fieldName
+    cell.detailValueTextField.text = fieldDictionary[fieldName!] as? String
     return cell
   }
   
@@ -54,6 +57,16 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
   
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
     
+  }
+  
+  // MARK:- Public
+  
+  func reloadWithContact(_ contact: ContactModel) {
+    self.contact = contact
+    self.detailsDictionary[0]!["First Name"] = self.contact?.firstName
+    self.detailsDictionary[1]!["Last Name"] = self.contact?.lastName
+    self.detailsDictionary[2]!["mobile"] = self.contact?.details?.mobile
+    self.detailsDictionary[3]!["email"] = self.contact?.details?.email
   }
   
   // MARK:- Private

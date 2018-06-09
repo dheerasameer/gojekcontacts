@@ -11,9 +11,7 @@ import MessageUI
 
 class ContactDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
   
-  private let detailsLabels = ["mobile", "email"]
-
-  private var detailsDictionary = ["mobile": "", "email": ""] {
+  private var detailsDictionary = [0: ["mobile": ""], 1: ["email": ""]] {
     didSet {
       self.contactDetailsTableView.reloadData()
     }
@@ -51,8 +49,10 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactDetailCell", for: indexPath) as! ContactDetailViewCell
-    cell.detailTypeLabel.text = self.detailsLabels[indexPath.row]
-    cell.detailValueLabel.text = self.detailsDictionary[self.detailsLabels[indexPath.row]]
+    let fieldDictionary = self.detailsDictionary[indexPath.row]! as NSDictionary
+    let fieldName = fieldDictionary.allKeys[0] as? String
+    cell.detailTypeLabel.text = fieldName
+    cell.detailValueLabel.text = fieldDictionary[fieldName!] as? String
     return cell
   }
   
@@ -80,6 +80,7 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
     let editVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! ContactEditViewController
+    editVC.reloadWithContact(self.contact!)
     // TODO: Better fix for navigation bar on editVC
     let navigationVC = UINavigationController(rootViewController: editVC)
     self.present(navigationVC, animated: true, completion: nil)
@@ -123,8 +124,8 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     ContactsHelper.fetchContactDetails(self.contact!) { [weak self] (success, error) in
       if success {
         DispatchQueue.main.async {
-          self?.detailsDictionary["mobile"] = self?.contact?.details?.mobile
-          self?.detailsDictionary["email"] = self?.contact?.details?.email
+          self?.detailsDictionary[0]!["mobile"] = self?.contact?.details?.mobile
+          self?.detailsDictionary[1]!["email"] = self?.contact?.details?.email
         }
       } else {
         print(error!.localizedDescription)
