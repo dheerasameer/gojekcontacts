@@ -88,21 +88,21 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   @IBAction func messageButtonTap(_ sender: UIButton) {
     if MFMessageComposeViewController.canSendText() {
       let messageVC = MFMessageComposeViewController()
-      messageVC.recipients = ["Enter tel-nr"]
+      messageVC.recipients = [self.contact!.details!.mobile!]
       messageVC.messageComposeDelegate = self
       self.present(messageVC, animated: false, completion: nil)
     }
   }
   
   @IBAction func callButtonTap(_ sender: UIButton) {
-    guard let number = URL(string: "tel://" + "123456") else { return }
+    guard let number = URL(string: "tel://" + self.contact!.details!.mobile!) else { return }
     UIApplication.shared.open(number)
   }
   
   @IBAction func emailButtonTap(_ sender: UIButton) {
     if MFMailComposeViewController.canSendMail() {
       let emailVC = MFMailComposeViewController()
-      emailVC.setToRecipients(["k.dheerasameer@gmail.com"])
+      emailVC.setToRecipients([self.contact!.details!.email!])
       self.present(emailVC, animated: false, completion: nil)
     }
   }
