@@ -39,7 +39,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEg-kY-P4N" userLabel="Contact Name Label">
-                                                    <rect key="frame" x="72" y="11.5" width="44.5" height="21"/>
+                                                    <rect key="frame" x="72" y="11.5" width="237" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -53,13 +53,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="1kb-hx-IT2" firstAttribute="leading" secondItem="Fya-ev-3f4" secondAttribute="leading" constant="16" id="4u2-rg-Txk"/>
+                                                <constraint firstItem="MHU-mN-dix" firstAttribute="leading" secondItem="CEg-kY-P4N" secondAttribute="trailing" constant="10" id="6aV-7k-Qw0"/>
                                                 <constraint firstAttribute="bottom" secondItem="1kb-hx-IT2" secondAttribute="bottom" constant="12" id="DFR-f9-yEM"/>
                                                 <constraint firstItem="CEg-kY-P4N" firstAttribute="leading" secondItem="1kb-hx-IT2" secondAttribute="trailing" constant="16" id="EAt-iR-thW"/>
                                                 <constraint firstItem="MHU-mN-dix" firstAttribute="top" secondItem="Fya-ev-3f4" secondAttribute="top" constant="20" id="HXL-fj-wXM"/>
                                                 <constraint firstAttribute="trailing" secondItem="MHU-mN-dix" secondAttribute="trailing" constant="32" id="Kvm-EB-k8X"/>
                                                 <constraint firstItem="MHU-mN-dix" firstAttribute="centerY" secondItem="Fya-ev-3f4" secondAttribute="centerY" id="LTV-v4-6pS"/>
                                                 <constraint firstItem="1kb-hx-IT2" firstAttribute="top" secondItem="Fya-ev-3f4" secondAttribute="top" constant="12" id="OQz-Gl-gH1"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CEg-kY-P4N" secondAttribute="trailing" constant="20" symbolic="YES" id="fwf-eI-DsC"/>
                                                 <constraint firstAttribute="bottom" secondItem="MHU-mN-dix" secondAttribute="bottom" constant="20" id="kp1-d8-VhY"/>
                                                 <constraint firstItem="CEg-kY-P4N" firstAttribute="centerY" secondItem="Fya-ev-3f4" secondAttribute="centerY" id="yEd-fX-xKm"/>
                                             </constraints>
