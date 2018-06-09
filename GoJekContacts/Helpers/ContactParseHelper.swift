@@ -35,6 +35,16 @@ class ContactParseHelper {
     contact.details?.email = details["email"] as? String
   }
   
+  func getContactDictionary(_ contact: ContactModel) -> NSMutableDictionary {
+    let contactDictionary = NSMutableDictionary()
+    contactDictionary["first_name"] = contact.firstName
+    contactDictionary["last_name"] = contact.lastName
+    contactDictionary["phone_number"] = contact.details!.mobile
+    contactDictionary["email"] = contact.details!.email
+    contactDictionary["favorite"] = contact.isFavourite
+    return contactDictionary
+  }
+  
   private func getParsedContact(from item: NSDictionary) -> ContactModel {
     let contact = ContactModel()
     contact.id = item["id"] as? Int16
@@ -48,5 +58,7 @@ class ContactParseHelper {
     contact.updateProfilePic()
     return contact
   }
+  
+  
   
 }

@@ -21,6 +21,7 @@
 		043A8EDD20C5897B004C0F6A /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */; };
 		043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */; };
 		043A8EE120C58F8A004C0F6A /* sameer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EE020C58F8A004C0F6A /* sameer.jpg */; };
+		0453B27220CC0EB40032509F /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453B27120CC0EB40032509F /* ErrorHelper.swift */; };
 		0465901820C8366F005B5B23 /* ContactDetailEditableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */; };
 		048EED5220CA34B100A7FA4F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EED5120CA34B100A7FA4F /* ContactModel.swift */; };
 		048EED5520CA372B00A7FA4F /* ContactsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EED5420CA372B00A7FA4F /* ContactsHelper.swift */; };
@@ -69,6 +70,7 @@
 		043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		043A8EE020C58F8A004C0F6A /* sameer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sameer.jpg; sourceTree = "<group>"; };
+		0453B27120CC0EB40032509F /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 		0465901720C8366F005B5B23 /* ContactDetailEditableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailEditableViewCell.swift; sourceTree = "<group>"; };
 		048EED5120CA34B100A7FA4F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		048EED5420CA372B00A7FA4F /* ContactsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsHelper.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				048EED5420CA372B00A7FA4F /* ContactsHelper.swift */,
 				048EED5620CA4C8000A7FA4F /* ContactParseHelper.swift */,
 				048EED5820CA5F8800A7FA4F /* ValidationHelper.swift */,
+				0453B27120CC0EB40032509F /* ErrorHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				048EED5720CA4C8000A7FA4F /* ContactParseHelper.swift in Sources */,
 				041A58FC20C703EF00B075FB /* ContactEditViewController.swift in Sources */,
 				048EED5520CA372B00A7FA4F /* ContactsHelper.swift in Sources */,
+				0453B27220CC0EB40032509F /* ErrorHelper.swift in Sources */,
 				048EED5920CA5F8800A7FA4F /* ValidationHelper.swift in Sources */,
 				043A8EB020C588DC004C0F6A /* GoJekContacts.xcdatamodeld in Sources */,
 				041A58F720C6E66400B075FB /* ContactDetailViewCell.swift in Sources */,

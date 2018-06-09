@@ -56,7 +56,12 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
-    
+    self.updateContactDetails()
+    ContactsHelper.updateContact(self.contact!, onlyFavorite: false) { (success, error) in
+      if success {
+        print("details updated")
+      }
+    }
   }
   
   // MARK:- Public
@@ -75,6 +80,13 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
     // UITableView
     self.contactDetailsTableView.delegate = self
     self.contactDetailsTableView.dataSource = self
+  }
+  
+  private func updateContactDetails() {
+    self.contact?.firstName = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 0, section: 1))?.detailTextLabel?.text
+    self.contact?.lastName = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 1, section: 1))?.detailTextLabel?.text
+    self.contact?.details?.mobile = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 2, section: 1))?.detailTextLabel?.text
+    self.contact?.details?.email = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 3, section: 1))?.detailTextLabel?.text
   }
 
 }

@@ -18,4 +18,13 @@ class ValidationHelper {
     return result
   }
   
+  static func isValidResponse(_ response: URLResponse) -> Bool {
+    let status = (response as! HTTPURLResponse).statusCode
+    var isValid: Bool = false
+    if status == 200 {
+      isValid = true
+    }
+    return isValid
+  }
+  
 }

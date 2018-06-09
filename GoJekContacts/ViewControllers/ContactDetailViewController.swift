@@ -115,6 +115,7 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
       self.contactFavouriteButton.setImage(UIImage(named: "icon_favourite_selected"), for: .normal)
     }
     self.contact!.isFavourite = !self.contact!.isFavourite
+    ContactsHelper.updateContact(contact!, onlyFavorite: true, completion: nil)
   }
   
   // MARK:- Public
