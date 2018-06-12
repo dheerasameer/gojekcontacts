@@ -57,9 +57,23 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
   
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
     self.updateContactDetails()
+    let alertVC = UIAlertController(title: "Edit User", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+
     ContactsHelper.updateContact(self.contact!, onlyFavorite: false) { (success, error) in
       if success {
-        print("details updated")
+        alertVC.message = "Edited successfully"
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { [weak self] (action) in
+          self!.dismiss(animated: true, completion: {
+          })
+        }))
+      } else {
+        alertVC.message = error?.localizedDescription
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: { (action) in
+          alertVC.dismiss(animated: true, completion: nil)
+        }))
+      }
+      DispatchQueue.main.async {
+        self.present(alertVC, animated: true, completion: nil)
       }
     }
   }
@@ -83,10 +97,18 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   private func updateContactDetails() {
-    self.contact?.firstName = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 0, section: 1))?.detailTextLabel?.text
-    self.contact?.lastName = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 1, section: 1))?.detailTextLabel?.text
-    self.contact?.details?.mobile = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 2, section: 1))?.detailTextLabel?.text
-    self.contact?.details?.email = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 3, section: 1))?.detailTextLabel?.text
+    let firstNameCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.firstName = firstNameCell.detailValueTextField.text!
+    
+    let lastNameCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.lastName = lastNameCell.detailValueTextField.text!
+    
+    let mobileCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.details?.mobile = mobileCell.detailValueTextField.text!
+    
+    let emailCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.details?.email = emailCell.detailValueTextField.text!
+
   }
 
 }

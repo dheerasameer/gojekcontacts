@@ -14,55 +14,55 @@ class ContactsHelper {
   
   static func fetchAllContacts(completion: @escaping ([ContactModel]?, Bool, Error?) -> Void) {
     var contactList: [ContactModel]? = nil
-//    var success: Bool = false
-//    var fetchError: Error? = nil
-//    let url = URL(string: contactsBaseURL)
-//    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-//      if error == nil {
-//        if let responseData = data {
-//          let responseJson = try? JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as! Array<NSDictionary>
-//          if let contactsJsonList = responseJson {
-//            success = true
-//            contactList = ContactParseHelper().getParsedContactsList(contactsJsonList)
-//          } else {
-//            fetchError = ErrorHelper.getError(type: .JsonSerialization)
-//          }
-//        }
-//      }
-//      else {
-//        fetchError = error
-//      }
-//      completion(contactList, success, fetchError)
-//    }
-//    task.resume()
-    contactList = ContactParseHelper().getParsedContactsList(MockData.mockContactsList)
-    completion(contactList, true, nil)
+    var success: Bool = false
+    var fetchError: Error? = nil
+    let url = URL(string: contactsBaseURL)
+    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+      if error == nil {
+        if let responseData = data {
+          let responseJson = try? JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as! Array<NSDictionary>
+          if let contactsJsonList = responseJson {
+            success = true
+            contactList = ContactParseHelper().getParsedContactsList(contactsJsonList)
+          } else {
+            fetchError = ErrorHelper.getError(type: .JsonSerialization)
+          }
+        }
+      }
+      else {
+        fetchError = error
+      }
+      completion(contactList, success, fetchError)
+    }
+    task.resume()
+//    contactList = ContactParseHelper().getParsedContactsList(MockData.mockContactsList)
+//    completion(contactList, true, nil)
   }
   
   static func fetchContactDetails(_ contact: ContactModel, completion: @escaping (Bool, Error?) -> Void) {
-//    var success: Bool = false
-//    var fetchError: Error? = nil
-//    let url = URL(string: contact.details!.url!)
-//    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-//      if error == nil {
-//        if let responseData = data {
-//          let responseJson = try? JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as! NSDictionary
-//          if let detailsJson = responseJson {
-//            success = true
-//            ContactParseHelper().parseAndUpdateContactDetails(withDetails: detailsJson, for: contact)
-//          } else {
-//            fetchError = ErrorHelper.getError(type: .JsonSerialization)
-//          }
-//        }
-//      }
-//      else {
-//        fetchError = error
-//      }
-//      completion(success, fetchError)
-//    }
-//    task.resume()
-    ContactParseHelper().parseAndUpdateContactDetails(withDetails: MockData.mockContactDetailsDictionary, for: contact)
-    completion(true, nil)
+    var success: Bool = false
+    var fetchError: Error? = nil
+    let url = URL(string: contact.details!.url!)
+    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+      if error == nil {
+        if let responseData = data {
+          let responseJson = try? JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as! NSDictionary
+          if let detailsJson = responseJson {
+            success = true
+            ContactParseHelper().parseAndUpdateContactDetails(withDetails: detailsJson, for: contact)
+          } else {
+            fetchError = ErrorHelper.getError(type: .JsonSerialization)
+          }
+        }
+      }
+      else {
+        fetchError = error
+      }
+      completion(success, fetchError)
+    }
+    task.resume()
+//    ContactParseHelper().parseAndUpdateContactDetails(withDetails: MockData.mockContactDetailsDictionary, for: contact)
+//    completion(true, nil)
   }
   
   static func updateContact(_ contact: ContactModel, onlyFavorite: Bool, completion: ((Bool, Error?) -> Void)?) {

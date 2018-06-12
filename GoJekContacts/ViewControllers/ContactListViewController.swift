@@ -23,6 +23,9 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupTableView()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
     ContactsHelper.fetchAllContacts { [weak self] (list, success, error) in
       if success {
         DispatchQueue.main.async {
@@ -79,8 +82,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   // MARK:- Interface callbacks
   
   @IBAction func addButtonTap(_ sender: UIBarButtonItem) {
-    let editVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! ContactEditViewController
-    let addVC = editVC as! ContactAddViewController
+    let addVC = self.storyboard?.instantiateViewController(withIdentifier: "addVC") as! ContactAddViewController
     // TODO: Better fix for navigation bar on editVC
     let navigationVC = UINavigationController(rootViewController: addVC)
     self.present(navigationVC, animated: true, completion: nil)
