@@ -68,9 +68,7 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
         }))
       } else {
         alertVC.message = error?.localizedDescription
-        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: { (action) in
-          alertVC.dismiss(animated: true, completion: nil)
-        }))
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: nil))
       }
       DispatchQueue.main.async {
         self.present(alertVC, animated: true, completion: nil)

@@ -25,19 +25,21 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     self.setupTableView()
   }
   
-  override func viewDidAppear(_ animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     ContactsHelper.fetchAllContacts { [weak self] (list, success, error) in
       if success {
         DispatchQueue.main.async {
           self?.contactsList = list
         }
       } else {
-        print(error!.localizedDescription)
+        let alertVC = UIAlertController(title: "Error in fetching contacts", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: nil))
+        DispatchQueue.main.async {
+          self?.present(alertVC, animated: true, completion: nil)
+        }
       }
     }
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
+    
     if let indexPath = self.contactsTableView.indexPathForSelectedRow {
       self.contactsTableView.deselectRow(at: indexPath, animated: true)
     }

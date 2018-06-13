@@ -31,6 +31,8 @@ class ContactParseHelper {
   }
   
   func parseAndUpdateContactDetails(withDetails details: NSDictionary, for contact: ContactModel) {
+    contact.firstName = details["first_name"] as? String
+    contact.lastName = details["last_name"] as? String
     contact.details?.mobile = details["phone_number"] as? String
     contact.details?.email = details["email"] as? String
   }

@@ -28,6 +28,23 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    ContactsHelper.fetchContactDetails(self.contact!) { [weak self] (success, error) in
+      if success {
+        DispatchQueue.main.async {
+          self?.detailsDictionary[0]!["mobile"] = self?.contact?.details?.mobile
+          self?.detailsDictionary[1]!["email"] = self?.contact?.details?.email
+        }
+      } else {
+        let alertVC = UIAlertController(title: "Error in fetching details", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: nil))
+        DispatchQueue.main.async {
+          self?.present(alertVC, animated: true, completion: nil)
+        }
+      }
+    }
     self.updateWithDetails()
   }
   
@@ -122,16 +139,6 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   func reloadWithContact(_ contact: ContactModel) {
     self.contact = contact
-    ContactsHelper.fetchContactDetails(self.contact!) { [weak self] (success, error) in
-      if success {
-        DispatchQueue.main.async {
-          self?.detailsDictionary[0]!["mobile"] = self?.contact?.details?.mobile
-          self?.detailsDictionary[1]!["email"] = self?.contact?.details?.email
-        }
-      } else {
-        print(error!.localizedDescription)
-      }
-    }
   }
   
   // MARK:- Private
