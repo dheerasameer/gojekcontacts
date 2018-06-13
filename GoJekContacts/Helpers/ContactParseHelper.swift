@@ -41,8 +41,8 @@ class ContactParseHelper {
     let contactDictionary = NSMutableDictionary()
     contactDictionary["first_name"] = contact.firstName
     contactDictionary["last_name"] = contact.lastName
-    contactDictionary["phone_number"] = contact.details!.mobile
-    contactDictionary["email"] = contact.details!.email
+    contactDictionary["phone_number"] = contact.details?.mobile
+    contactDictionary["email"] = contact.details?.email
     contactDictionary["favorite"] = contact.isFavourite
     return contactDictionary
   }
