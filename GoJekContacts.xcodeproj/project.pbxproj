@@ -16,7 +16,6 @@
 		043A8EB020C588DC004C0F6A /* GoJekContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EAE20C588DC004C0F6A /* GoJekContacts.xcdatamodeld */; };
 		043A8EB220C588DD004C0F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EB120C588DD004C0F6A /* Assets.xcassets */; };
 		043A8EB520C588DD004C0F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043A8EB320C588DD004C0F6A /* LaunchScreen.storyboard */; };
-		043A8EC020C588DE004C0F6A /* GoJekContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EBF20C588DE004C0F6A /* GoJekContactsTests.swift */; };
 		043A8ECB20C588DE004C0F6A /* GoJekContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8ECA20C588DE004C0F6A /* GoJekContactsUITests.swift */; };
 		043A8EDD20C5897B004C0F6A /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDC20C5897B004C0F6A /* ContactListViewController.swift */; };
 		043A8EDF20C58D3D004C0F6A /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A8EDE20C58D3D004C0F6A /* ContactTableViewCell.swift */; };
@@ -31,6 +30,7 @@
 		04AAB5D220CB677D00979E14 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB5D120CB677D00979E14 /* MockData.swift */; };
 		04B9067520C86A83008BC943 /* ContactAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9067420C86A83008BC943 /* ContactAddViewController.swift */; };
 		04E6A67C20D174740031E9C4 /* ContactsHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6A67B20D174740031E9C4 /* ContactsHelperTests.swift */; };
+		04E6A68220D18A2D0031E9C4 /* ErrorHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6A68120D18A2D0031E9C4 /* ErrorHelperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		043A8EB420C588DD004C0F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043A8EB620C588DE004C0F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043A8EBB20C588DE004C0F6A /* GoJekContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoJekContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		043A8EBF20C588DE004C0F6A /* GoJekContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoJekContactsTests.swift; sourceTree = "<group>"; };
 		043A8EC120C588DE004C0F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043A8EC620C588DE004C0F6A /* GoJekContactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoJekContactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043A8ECA20C588DE004C0F6A /* GoJekContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoJekContactsUITests.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		04AAB5D120CB677D00979E14 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		04B9067420C86A83008BC943 /* ContactAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddViewController.swift; sourceTree = "<group>"; };
 		04E6A67B20D174740031E9C4 /* ContactsHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsHelperTests.swift; sourceTree = "<group>"; };
+		04E6A68120D18A2D0031E9C4 /* ErrorHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,9 +150,9 @@
 		043A8EBE20C588DE004C0F6A /* GoJekContactsTests */ = {
 			isa = PBXGroup;
 			children = (
-				043A8EBF20C588DE004C0F6A /* GoJekContactsTests.swift */,
 				043A8EC120C588DE004C0F6A /* Info.plist */,
 				04E6A67B20D174740031E9C4 /* ContactsHelperTests.swift */,
+				04E6A68120D18A2D0031E9C4 /* ErrorHelperTests.swift */,
 			);
 			path = GoJekContactsTests;
 			sourceTree = "<group>";
@@ -372,8 +372,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E6A68220D18A2D0031E9C4 /* ErrorHelperTests.swift in Sources */,
 				04E6A67C20D174740031E9C4 /* ContactsHelperTests.swift in Sources */,
-				043A8EC020C588DE004C0F6A /* GoJekContactsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

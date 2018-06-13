@@ -32,7 +32,7 @@ class ErrorHelper {
   
   static func getErrorForResponse(_ response: URLResponse) -> Error {
     let status = (response as! HTTPURLResponse).statusCode
-    let error = NSError(domain: "GO-JEK", code: status, userInfo: [NSLocalizedDescriptionKey : HTTPURLResponse.localizedString(forStatusCode: status)])
+    let error = NSError(domain: errorDomain, code: status, userInfo: [NSLocalizedDescriptionKey : HTTPURLResponse.localizedString(forStatusCode: status)])
     return error
   }
 }

@@ -11,6 +11,7 @@ import XCTest
 
 class ContactsHelperTests: XCTestCase {
   
+  var list: [ContactModel]? = nil
   var contact: ContactModel? = nil
   var newContact: ContactModel? = nil
   
@@ -31,34 +32,61 @@ class ContactsHelperTests: XCTestCase {
     self.contact?.details = nil
     self.contact = nil
     self.newContact = nil
+    self.list = nil
   }
   
   func testFetchAllContacts() {
+    var flag: Bool = false
+    var bError: Error? = nil
+    let expectation = XCTestExpectation(description: "Download all contacts")
     ContactsHelper.fetchAllContacts { (contactList, success, error) in
-      XCTAssert(success && contactList != nil && contactList!.count > 0, error!.localizedDescription)
+      flag = success
+      bError = error
+      self.list = contactList
+      expectation.fulfill()
     }
+    wait(for: [expectation], timeout: 10.0)
+    XCTAssert(flag && self.list != nil && self.list!.count > 0, bError!.localizedDescription)
   }
   
   func testFetchContactDetails() {
+    var flag: Bool = false
+    var bError: Error? = nil
+    let expectation = XCTestExpectation(description: "Download contact details")
     ContactsHelper.fetchContactDetails(self.contact!) { (success, error) in
-      XCTAssert(success && self.contact!.details!.mobile != nil && self.contact!.details!.email != nil, error!.localizedDescription)
+      flag = success
+      bError = error
+      expectation.fulfill()
     }
+    wait(for: [expectation], timeout: 10.0)
+    XCTAssert(flag, bError!.localizedDescription)
   }
   
   func testUpdateContact() {
+    var flag: Bool = false
+    var bError: Error? = nil
     self.contact!.firstName = "TestUser"
     self.contact!.isFavourite = !self.contact!.isFavourite
+    let expectation = XCTestExpectation(description: "Update contact")
     ContactsHelper.updateContact(self.contact!, onlyFavorite: false) { (success, error) in
-      XCTAssert(success && error == nil, error!.localizedDescription)
+      flag = success
+      bError = error
+      expectation.fulfill()
     }
-    ContactsHelper.updateContact(self.contact!, onlyFavorite: true) { (success, error) in
-      XCTAssert(success && error == nil, error!.localizedDescription)
-    }
+    wait(for: [expectation], timeout: 10.0)
+    XCTAssert(flag && bError == nil, bError!.localizedDescription)
   }
   
   func testAddContact() {
+    var flag: Bool = false
+    var bError: Error? = nil
+    let expectation = XCTestExpectation(description: "Add contact")
     ContactsHelper.addContact(self.newContact!) { (success, error) in
-      XCTAssert(success && error == nil, error!.localizedDescription)
+      flag = success
+      bError = error
+      expectation.fulfill()
     }
+    wait(for: [expectation], timeout: 10.0)
+    XCTAssert(flag && bError == nil, bError!.localizedDescription)
   }
 }
