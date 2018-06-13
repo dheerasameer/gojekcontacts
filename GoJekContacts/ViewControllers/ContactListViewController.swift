@@ -9,17 +9,37 @@
 import UIKit
 
 class ContactListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+  
+  private var contactsList: [ContactModel]? = nil {
+    didSet {
+      self.contactsTableView.reloadData()
+    }
+  }
+  
+  private let contactIndexTitles = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
   
   @IBOutlet weak var contactsTableView: UITableView!
-  let contactIndexTitles = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupTableView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    ContactsHelper.fetchAllContacts { [weak self] (list, success, error) in
+      if success {
+        DispatchQueue.main.async {
+          self?.contactsList = list
+        }
+      } else {
+        let alertVC = UIAlertController(title: "Error in fetching contacts", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: nil))
+        DispatchQueue.main.async {
+          self?.present(alertVC, animated: true, completion: nil)
+        }
+      }
+    }
+    
     if let indexPath = self.contactsTableView.indexPathForSelectedRow {
       self.contactsTableView.deselectRow(at: indexPath, animated: true)
     }
@@ -34,11 +54,19 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   // MARK:- UITableViewDataSource
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    var count = 0
+    if let list = self.contactsList {
+      count = list.count
+    }
+    return count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let contact = self.contactsList![indexPath.row]
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
+    cell.contactNameLabel.text = contact.firstName! + " " + contact.lastName!
+    cell.favouriteImageView.isHidden = !contact.isFavourite
+    // TODO: Update contact image
     return cell
   }
   
@@ -48,6 +76,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let contactDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "contactDetailVC") as! ContactDetailViewController
+    contactDetailVC.reloadWithContact(self.contactsList![indexPath.row])
     self.navigationController?.pushViewController(contactDetailVC, animated: true)
   }
   
@@ -55,8 +84,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
   // MARK:- Interface callbacks
   
   @IBAction func addButtonTap(_ sender: UIBarButtonItem) {
-    let editVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! ContactEditViewController
-    let addVC = editVC as! ContactAddViewController
+    let addVC = self.storyboard?.instantiateViewController(withIdentifier: "addVC") as! ContactAddViewController
     // TODO: Better fix for navigation bar on editVC
     let navigationVC = UINavigationController(rootViewController: addVC)
     self.present(navigationVC, animated: true, completion: nil)

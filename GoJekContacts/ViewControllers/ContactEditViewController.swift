@@ -10,12 +10,13 @@ import UIKit
 
 class ContactEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  let detailLabels = ["First Name", "Last Name", "mobile", "email"]
+  private var detailsDictionary = [0: ["First Name": ""], 1: ["Last Name": ""], 2: ["mobile": ""], 3: ["email": ""]]
+  private var contact: ContactModel? = nil
   
   @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var contactImageView: UIImageView!
-  
   @IBOutlet weak var contactDetailsTableView: UITableView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
@@ -40,8 +41,10 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactDetailEditableCell", for: indexPath) as! ContactDetailEditableViewCell
-    cell.detailTypeLabel.text = self.detailLabels[indexPath.row]
-    cell.detailValueTextField.text = "+91 7022030522"
+    let fieldDictionary = self.detailsDictionary[indexPath.row]! as NSDictionary
+    let fieldName = fieldDictionary.allKeys[0] as? String
+    cell.detailTypeLabel.text = fieldName
+    cell.detailValueTextField.text = fieldDictionary[fieldName!] as? String
     return cell
   }
   
@@ -53,7 +56,34 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
-    
+    self.updateContactDetails()
+    let alertVC = UIAlertController(title: "Edit User", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+
+    ContactsHelper.updateContact(self.contact!, onlyFavorite: false) { (success, error) in
+      if success {
+        alertVC.message = "Edited successfully"
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { [weak self] (action) in
+          self!.dismiss(animated: true, completion: {
+          })
+        }))
+      } else {
+        alertVC.message = error?.localizedDescription
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: nil))
+      }
+      DispatchQueue.main.async {
+        self.present(alertVC, animated: true, completion: nil)
+      }
+    }
+  }
+  
+  // MARK:- Public
+  
+  func reloadWithContact(_ contact: ContactModel) {
+    self.contact = contact
+    self.detailsDictionary[0]!["First Name"] = self.contact?.firstName
+    self.detailsDictionary[1]!["Last Name"] = self.contact?.lastName
+    self.detailsDictionary[2]!["mobile"] = self.contact?.details?.mobile
+    self.detailsDictionary[3]!["email"] = self.contact?.details?.email
   }
   
   // MARK:- Private
@@ -62,6 +92,21 @@ class ContactEditViewController: UIViewController, UITableViewDelegate, UITableV
     // UITableView
     self.contactDetailsTableView.delegate = self
     self.contactDetailsTableView.dataSource = self
+  }
+  
+  private func updateContactDetails() {
+    let firstNameCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.firstName = firstNameCell.detailValueTextField.text!
+    
+    let lastNameCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.lastName = lastNameCell.detailValueTextField.text!
+    
+    let mobileCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.details?.mobile = mobileCell.detailValueTextField.text!
+    
+    let emailCell = self.contactDetailsTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! ContactDetailEditableViewCell
+    self.contact?.details?.email = emailCell.detailValueTextField.text!
+
   }
 
 }

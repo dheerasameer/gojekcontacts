@@ -10,17 +10,41 @@ import UIKit
 import MessageUI
 
 class ContactDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
-
-  private let detailLabels = ["mobile", "email"]
+  
+  private var detailsDictionary = [0: ["mobile": ""], 1: ["email": ""]] {
+    didSet {
+      self.contactDetailsTableView.reloadData()
+    }
+  }
+  
+  var contact: ContactModel? = nil
   
   @IBOutlet weak var contactImageView: UIImageView!
   @IBOutlet weak var contactNameLabel: UILabel!
   
   @IBOutlet weak var contactDetailsTableView: UITableView!
+  @IBOutlet weak var contactFavouriteButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    ContactsHelper.fetchContactDetails(self.contact!) { [weak self] (success, error) in
+      if success {
+        DispatchQueue.main.async {
+          self?.detailsDictionary[0]!["mobile"] = self?.contact?.details?.mobile
+          self?.detailsDictionary[1]!["email"] = self?.contact?.details?.email
+        }
+      } else {
+        let alertVC = UIAlertController(title: "Error in fetching details", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        alertVC.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: nil))
+        DispatchQueue.main.async {
+          self?.present(alertVC, animated: true, completion: nil)
+        }
+      }
+    }
     self.updateWithDetails()
   }
   
@@ -42,8 +66,10 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell =  tableView.dequeueReusableCell(withIdentifier: "contactDetailCell", for: indexPath) as! ContactDetailViewCell
-    cell.detailTypeLabel.text = self.detailLabels[indexPath.row]
-    cell.detailValueLabel.text = "+91 7022030522"
+    let fieldDictionary = self.detailsDictionary[indexPath.row]! as NSDictionary
+    let fieldName = fieldDictionary.allKeys[0] as? String
+    cell.detailTypeLabel.text = fieldName
+    cell.detailValueLabel.text = fieldDictionary[fieldName!] as? String
     return cell
   }
   
@@ -71,6 +97,7 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   
   @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
     let editVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! ContactEditViewController
+    editVC.reloadWithContact(self.contact!)
     // TODO: Better fix for navigation bar on editVC
     let navigationVC = UINavigationController(rootViewController: editVC)
     self.present(navigationVC, animated: true, completion: nil)
@@ -79,27 +106,39 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   @IBAction func messageButtonTap(_ sender: UIButton) {
     if MFMessageComposeViewController.canSendText() {
       let messageVC = MFMessageComposeViewController()
-      messageVC.recipients = ["Enter tel-nr"]
+      messageVC.recipients = [self.contact!.details!.mobile!]
       messageVC.messageComposeDelegate = self
       self.present(messageVC, animated: false, completion: nil)
     }
   }
   
   @IBAction func callButtonTap(_ sender: UIButton) {
-    guard let number = URL(string: "tel://" + "123456") else { return }
+    guard let number = URL(string: "tel://" + self.contact!.details!.mobile!) else { return }
     UIApplication.shared.open(number)
   }
   
   @IBAction func emailButtonTap(_ sender: UIButton) {
     if MFMailComposeViewController.canSendMail() {
       let emailVC = MFMailComposeViewController()
-      emailVC.setToRecipients(["k.dheerasameer@gmail.com"])
+      emailVC.setToRecipients([self.contact!.details!.email!])
       self.present(emailVC, animated: false, completion: nil)
     }
   }
   
   @IBAction func favouriteButtonTap(_ sender: UIButton) {
-    //TODO: Put condition to show favourite and vice versa
+    if self.contact!.isFavourite {
+      self.contactFavouriteButton.setImage(UIImage(named: "icon_favourite"), for: .normal)
+    } else {
+      self.contactFavouriteButton.setImage(UIImage(named: "icon_favourite_selected"), for: .normal)
+    }
+    self.contact!.isFavourite = !self.contact!.isFavourite
+    ContactsHelper.updateContact(contact!, onlyFavorite: true, completion: nil)
+  }
+  
+  // MARK:- Public
+  
+  func reloadWithContact(_ contact: ContactModel) {
+    self.contact = contact
   }
   
   // MARK:- Private
@@ -116,8 +155,13 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
   }
   
   private func updateWithDetails() {
-    self.contactImageView.image = UIImage(named: "sameer.jpg")
-    self.contactNameLabel.text = "Sameer"
+    if let contactImage = self.contact?.profilePic {
+      self.contactImageView.image = contactImage
+    }
+    self.contactNameLabel.text = self.contact!.firstName! + " " + self.contact!.lastName!
+    if self.contact!.isFavourite {
+      self.contactFavouriteButton.setImage(UIImage(named: "icon_favourite_selected"), for: .normal)
+    }
   }
   
 }
